@@ -19,10 +19,11 @@ In New Zealand the main carriers SPARK, and Vodaphone both support LTE on bands 
 							    B8 (900 GSM)
 
 
-The firmware on the GPY  1.20.2.r6
-The firmware installed on the sequence Lte modem is CATM1-5.2-48829.zip
+	The firmware on the GPY  1.20.2.r6
+	The firmware installed on the sequence Lte modem is CATM1-5.2-48829.zip
 
-All of these firmwares and instructions are available at Pycom website https://docs.pycom.io/updatefirmware/ 
+All of these firmwares and instructions are available at Pycom website		
+		https://docs.pycom.io/updatefirmware/ 
 
 
                                                                             
