@@ -1,0 +1,7 @@
+This snippet of code works well
+It only worked after we installed the latest firmware 
+CATM1-5.2-48829.zip
+
+The zip  file contains two files that have to be installed one after the other.
+
+See https://docs.pycom.io/updatefirmware/ltemodem/ for instructions of how to udate the firmware 
