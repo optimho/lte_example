@@ -1,7 +1,38 @@
-This snippet of code works well
-It only worked after we installed the latest firmware 
-CATM1-5.2-48829.zip
 
-The zip  file contains two files that have to be installed one after the other.
+from network import LTE
+import time
+import socket
+from machine import RTC 
 
-See https://docs.pycom.io/updatefirmware/ltemodem/ for instructions of how to udate the firmware 
+lte = LTE(debug=True)
+rtc = RTC()
+#some carriers have special requirements, check print(lte.send_at_cmd("AT+SQNCTM=?")) to see if your carrier is listed.
+#when using verizon, use
+lte.init(carrier='standard')
+#when usint AT&T use,
+#lte.init(carrier=at&t)
+
+#some carriers do not require an APN
+#also, check the band settings with your carrier
+lte.attach(band=None, apn="hologram")
+print("attaching..", end='')
+while not lte.isattached():
+    time.sleep(0.25)
+
+    print('.', end='')
+    print(lte.send_at_cmd('AT!="fsm"'))         # get the System FSM
+print("attached!")
+
+lte.connect()
+print("connecting [##", end='')
+while not lte.isconnected():
+    time.sleep(0.25)
+    print('#', end='')
+    print(lte.send_at_cmd('AT!="showphy"'))
+    print(lte.send_at_cmd('AT!="fsm"'))
+print("] connected!")
+
+print(socket.getaddrinfo('pybytes.pycom.io', 80))
+lte.deinit()
+
+#now we can safely machine.deepsleep()

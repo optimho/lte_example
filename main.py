@@ -98,7 +98,7 @@ def getRTC():
 
     if not rtc.synced():
         setRTC()
-
+    setRTC()
     return rtc
 
 
